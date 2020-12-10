@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# NOTE: this script does not use indexing so if two of them executed at
+# the same time they will overwrite outputs. Remember to execute in
+# different directories (for example the ones where the tiny images
+# are saved)
+#
+# At first let's give job some descriptive name to distinct
+# from other jobs running on cluster
+#SBATCH -J generate_ImageNet_tiny
+#
+# Let's redirect job's out some other file than default slurm-%jobid-out
+#SBATCH --output=generate_ImageNet_tiny.log
+#SBATCH --error=generate_ImageNet_tiny.err
+#
+# We'll want to allocate one CPU core
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#
+# We'll want to reserve 2GB memory for the job
+# and 3 days of compute time to finish.
+#
+#SBATCH --mem=8000
+#SBATCH --time=1-00
+#SBATCH --partition=sgn
+#
+# These commands will be executed on the compute node:
+
+module load matlab
+cd /home/kamarain/Work/bitbucket/imagenet-tiny/Matlab/
+matlab -singleCompThread 1 -nodisplay -nosplash -r "generate_ImageNet_tiny"

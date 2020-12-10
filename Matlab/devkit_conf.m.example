@@ -1,0 +1,9 @@
+% 1. Copy this example cp <THIS>.m.example <THIS>.m
+% 2. Edit to correspond your needs
+% 3. Run the corresponding script that reads this
+
+conf.devkitDir = '/home/kamarain/Data/ImageNet/ILSVRC2014_devkit/';
+conf.ilsvrc_bbox_val_dir =  ['/home/kamarain/Data/ImageNet/' ...
+                    'ILSVR2014/CLS-LOC/ILSVRC2012_bbox_val_v2']
+conf.predictionFile = []; % leave empty for default evaluation
+

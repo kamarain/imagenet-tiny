@@ -1,0 +1,13 @@
+% Config file for read_ImageNet_tiny.m
+% Copy own copy and edit to correspond your paths:
+%
+% ~>cp read_ImageNet_tiny_conf.m.exampe read_ImageNet_tiny_conf.m
+%
+conf.imagenetDir = '/home/kamarain/Data/ImageNet';
+conf.imagenetTrainDir = 'ILSVR2014/CLS-LOC/ILSVRC2012_img_train';
+conf.imagenetValDir = 'ILSVR2014/CLS-LOC/ILSVRC2012_img_val';
+conf.tinyDir = '/home/kamarain/Data/ImageNet-tiny-8x8-sRGB-8bit';
+conf.howMany = 10; % -1 is all
+conf.readVal = true; % by setting true read instead the
+                      % validation data
+conf.howManyVal = 10; % -1 is all

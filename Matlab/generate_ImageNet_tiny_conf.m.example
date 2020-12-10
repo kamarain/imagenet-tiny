@@ -1,0 +1,22 @@
+% Config file for generate_ImageNet_tiny.m
+% Copy own copy and edit to correspond your paths:
+%
+% ~>cp generate_ImageNet_tiny_conf.m.exampe generate_ImageNet_tiny_conf.m
+%
+conf.imagenetDir = '/home/kamarain/Data/ImageNet';
+conf.imagenetTrainDir = 'ILSVR2014/CLS-LOC/ILSVRC2012_img_train';
+conf.imagenetValDir = 'ILSVR2014/CLS-LOC/ILSVRC2012_img_val';
+conf.tinySaveDir = '/home/kamarain/Data/ImageNet-tiny/';
+conf.tiny_width = 8;
+conf.tiny_height = 8;
+conf.enforce = true;
+conf.colorSpace = 'sRGB'; % 'Gray' or 'sRGB'
+conf.bitDepth = 8;
+conf.convType = 3; % [1,2,3] Def. 1
+conf.debugLevel = 0; % [0,1,2]
+
+conf.tinyDir = fullfile(conf.tinySaveDir,...
+                        sprintf('ImageNet-tiny-%dx%d-%s-%dbit-convType-%d',...
+                                conf.tiny_width,conf.tiny_height,...
+                                conf.colorSpace,...
+                                conf.bitDepth,conf.convType));
