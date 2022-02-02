@@ -1,44 +1,21 @@
 # README #
 
-ImageNet-tiny contains scripts to generate a "tiny" version of the ImageNet
-Large Scale Visual Classification Challenge
-(see http://www.image-net.org/challenges/LSVRC/). Tiny in terms of image
-sizes and number of classes. These scripts help to make more machine learning
-classes oriented tiny challenges that can be solved during exercises by
-machine learning students.
+ImageNet-tiny contains Matlab code (yes, sorry, made this long ago, before Python became the ML language) to generate a tiny version of the full ImageNet dataset. Below are step-by-step instructions to make your own data or download pre-made datasets of various sizes of images.
 
-### Author(s) ###
+## Download data
 
-* Joni Kamarainen [http://vision.cs.tut.fi](http://vision.cs.tut.fi)
+The original Web site of the challenge is here: [Web page](http://www.image-net.org/challenges/LSVRC/). However, the dataset has been moved to Kaggle.
 
-** Table of Contents **
+Register to Kaggle and move to the [dataset page](https://www.kaggle.com/c/imagenet-object-localization-challenge/) agree with the rules and download dataset. Easiest is to use the Kaggle API (assuming you have installed it to your Anaconda environment):
 
-[TOC]
+``
+~$ cd <MY_DATA_DIR>
+~$ kaggle competitions download -c imagenet-object-localization-challenge
+```
 
-# Introduction
+The dataset is 155GB so it will take some time.
 
-The aim of this project is to provide a platform to study machine learning (ML) methods using realistic challenging data. The particular emphasis is on vision problems since they are easy to visualise and entertaining for ML students. The basic workflow of the most machine learning systems is depicted below and we provide basic functionality to experiment and study importance of each stage.
-![machine_learning_workflow_small.png](https://bitbucket.org/repo/AnroBb/images/437448844-machine_learning_workflow_small.png)
-
-You will find out that your machine learning engineering work is always tied to the specific problem and dataset and therefore we have divided the Wiki to the main sections that are dataset specific, but under each section you find details of 1) data selection, 2) data preprocessing, 3) classifier selection and its meta-parameter tuning and 4) final evaluation. Each section provides a complete solution or multiple solutions for each data set and it is up to you to dispatch them to real applications and make some money.
-
-## Publications
-
-The following scientific publications have been made using this code (please, cite when appropriate):
-
-* Incremental Convolutional Neural Network Training (Y. Liu, Y. Qian, K. Chen, J.-K. Kämäräinen, H. Huttunen, L. Fan, J. Saarinen), In ICPR 1st Int. Workshop on Deep Learning for Pattern Recognition, 2016. [PDF](http://vision.cs.tut.fi/data/publications/icpr2016ws_incremental_cnn.pdf)
-
-# Dataset 1: ImageNet Large Scale Visual Recognition Challenge - ILSVRC
-
-See the challenge [Web page](http://www.image-net.org/challenges/LSVRC/) for more details. The data itself contains millions of images of thousands of different object categories (see [http://www.image-net.org/](http://www.image-net.org/)). Currently (2014) this challenge is one of the grand challenges in computer vision and machine learning and many top research groups all around the world are working on it (including also research centres of big companies like Google, Microsoft, Facebook etc.)
-
-## Get data
-
-Register via the challenge Web page and they will provide you a link via which you can download the full image sets (within the next 7 days).
-
-** NOTE: ** We provide several ready-generated ImageNet-tiny datasets in the download section of this repository. Then you don't need to download the original data at all!
-
-## Development KIT
+## Download the original Development KIT
 
 The development kit that is mainly useful to run the evaluation scripts for comparable numbers and is available at the project Web page (code is not very well document and certainly not elegant):
 
