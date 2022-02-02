@@ -8,7 +8,7 @@ The original Web site of the challenge is here: [Web page](http://www.image-net.
 
 Register to Kaggle and move to the [dataset page](https://www.kaggle.com/c/imagenet-object-localization-challenge/) agree with the rules and download dataset. Easiest is to use the Kaggle API (assuming you have installed it to your Anaconda environment):
 
-``
+```
 ~$ cd <MY_DATA_DIR>
 ~$ kaggle competitions download -c imagenet-object-localization-challenge
 ```
