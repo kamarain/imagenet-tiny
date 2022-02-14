@@ -2,6 +2,17 @@
 
 ImageNet-tiny contains Matlab code (yes, sorry, made this long ago, before Python became the ML language) to generate a tiny version of the full ImageNet dataset. Below are step-by-step instructions to make your own data or download pre-made datasets of various sizes of images.
 
+## Install Matlab
+
+Yes, unfortunately this piece of code was done before the Python era and therefore you need commercial product, Matlab, to run this code. I am sorry for that. Someone should consider porting code to Octave or Python.
+
+## Install necessary Linux tools
+
+For *convert* command line tool:
+```
+$ sudo apt install imagemagick
+```
+
 ## Download data
 
 The original Web site of the challenge is here: [Web page](http://www.image-net.org/challenges/LSVRC/). However, the dataset has been moved to Kaggle.
@@ -17,11 +28,22 @@ The dataset is 155GB so it will take some time.
 
 ## Download the original Development KIT
 
-The development kit that is mainly useful to run the evaluation scripts for comparable numbers and is available at the project Web page (code is not very well document and certainly not elegant):
+The development KIT is still available here (maybe for some time):
 
- * Development kit 2014 ([download](http://image-net.org/image/ilsvrc2014/ILSVRC2014_devkit.tgz))
+ * ILSVRC 2014 [download page](https://image-net.org/challenges/LSVRC/2014/2014-downloads.php)
 
-The challenge contains several different tasks, but here we mainly focus on the classification task without detection (no bounding boxes needed), i.e. your method should return the correct class in an input image. In 2014 the task was identified as **Task 2a** and its results under *ordered by classification error* where the winner in 2014 is GoogLeNet with the top-5 accuracy of 0.06656 corresponding to the accuracy of 93.3% correct (the correct class is identified on average in 93 images out of 100 within 5 best "guesses"). That is rather remarkable taking into consideration the difficulty of many classes!
+but since it is likely to disappear we also include the .tgz in our Files/ directory.
+
+```
+$ tar zxfv ILSVRC2014_devkit.tgz
+$ cd $ cd ILSVRC2014_devkit/
+```
+
+The development kit functionality is mainly useful to make sure that you evaluate your method correspondingly to the original challenge (their Matlab code is rather terrible, though).
+
+### ILSRC 2014 classification task
+
+The ooriginal challenge contains several different tasks, but here we mainly focus on the classification task without detection (no bounding boxes needed), i.e. your method should return the correct class in an input image. In 2014 the task was identified as *Task 2a* and its results under *ordered by classification error* where the winner in 2014 is GoogLeNet with the top-5 error of 0.06656 corresponding to the accuracy of 93.3% correct (the correct class is identified on average in 93 images out of 100 within 5 best "guesses"). That is rather remarkable taking into consideration the difficulty of many classes!
 
 ### Evaluation 
 
@@ -29,12 +51,17 @@ The development kit contains the following demo script for evaluating with the "
 
 * <DEVKITDIR>/evaluation/demo_eval_clsloc.m
 
-You may run it in Matlab and you should get the classification output. However, that is pretty crappy and therefore you may found our own version of the same script
+You may run it in Matlab and you should get the classification output. However, we have added a modified version of the script to our Matlab/ dir which is easier to configure to your paths etc.
 
 * <IMAGENET-TINY_DIR>/Matlab/demo_eval_clsloc2.m
 
 Edit its config file *devkit_conf.m* to correspond your paths and run in Matlab and you should get the following output:
 ```
+$ cd <IMAGENET-TINY_DIR>/matlab
+$ cp devkit_conf.m.example devit_conf.m
+EDIT paths in devkit_conf.m to correspond your directory structure
+$ nice matlab -nodesktop
+>> demo_eval_clsloc2
 ....
 ....
 # guesses vs clsloc error vs cls-only error
