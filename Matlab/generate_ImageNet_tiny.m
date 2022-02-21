@@ -12,9 +12,12 @@
 generate_ImageNet_tiny_conf
 
 % Load synsets
-load(fullfile(conf.imagenetDir,...
-              'ILSVRC2014_devkit',...
+%load(fullfile(conf.imagenetDir,...
+%              'ILSVRC2014_devkit',...
+%              'data/meta_clsloc.mat'));
+load(fullfile(conf.devkitDir,...
               'data/meta_clsloc.mat'));
+
 
 fprintf('Configuration: \n');
 conf
@@ -119,7 +122,7 @@ srcDir = fullfile(conf.imagenetDir,...
 srcDirListing = dir(srcDir);
 if (isempty(srcDirListing))
   error([srcDir ' does not exist - cannot do the validation set!']);
-  continue
+  %continue
 end;
 trgDir = fullfile(conf.tinyDir,...
                   conf.imagenetValDir);
